@@ -3,22 +3,12 @@ select
 TO_TIMESTAMP(START_AT) AS STARTED_AT,
 DATE(TO_TIMESTAMP(START_AT)) AS DATE_STARTED_AT,
 HOUR(TO_TIMESTAMP(START_AT)) AS HOUR_STARTED_AT,
-CASE
-WHEN DAYNAME(TO_TIMESTAMP(START_AT)) in ('Sat','Sun')
-THEN 'WEEKEND'
-ELSE 'BUSINESSDAY'
-END AS DAY_TYPE,
-CASE WHEN MONTH(TO_TIMESTAMP(START_AT)) in (12,1,2)
-    THEN 'WINTER'
-    WHEN MONTH(TO_TIMESTAMP(START_AT)) in (3,4,5)
-    THEN 'SPRING'
-    WHEN MONTH(TO_TIMESTAMP(START_AT)) in (6,7,8)
-    THEN 'SUMMER'
-    ELSE 'AUTUMN'
-    END AS STATION_OF_YEAR
+    {{DAY_TYPE('start_at')}} AS DAY_TYPE,
+    {{get_season('start_at')}},
+    {{function1('start_at')}} as started_at
 from
 {{ source('my_source', 'bike') }}
-where START_AT != 'started_at' and START_AT != '"started_at"'
+where START_AT != 'started_at' and START_AT != 'started_at'
 )
 select
 *
