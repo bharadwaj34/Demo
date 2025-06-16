@@ -3,7 +3,7 @@
 CASE WHEN TO_TIMESTAMP({{start_at}}) < CURRENT_DATE THEN 'PAST'
 ELSE 'FUTURE' END
 
-{% endmacro %},
+{% endmacro %}
 
 {% macro get_season(start_at)%}
 
