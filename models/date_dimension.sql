@@ -8,9 +8,8 @@ HOUR(TO_TIMESTAMP(START_AT)) AS HOUR_STARTED_AT,
     {{function1('START_AT')}}
 from
 {{ source('my_source', 'bike') }}
--- where START_AT != 'start_at' and START_AT != 'start_at'
-WHERE START_AT IS NOT NULL
-  AND START_AT != ''
+where START_AT != 'start_at' and START_AT != 'start_at'
+
 
 )
 select
