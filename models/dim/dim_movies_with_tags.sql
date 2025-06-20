@@ -1,6 +1,6 @@
 {{
     config(
-        materialized = 'ephemeral'
+        materialized = 'incremental'
     )
 }}
 with movies as (
