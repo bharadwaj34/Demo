@@ -17,7 +17,7 @@ from raw_ratings
 where rating is not null 
 
 {% if is_incremental() %}
-  and rating_timestamp > (select max(rating_timestamp)) from {{this}}
+  and rating_timestamp > (select max(rating_timestamp) from {{this}})
 {% endif%}
 
 
