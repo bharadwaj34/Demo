@@ -7,3 +7,22 @@ sources:
     tables:
       - name: bike
       - name: weather
+      
+  - name: us_crime
+    database: US_CRIME
+    schema: CYBERSYN
+    tables:
+      - name: urban_crime_incident_log
+
+  - name: netflixstage
+    database: MOVIELENS
+    schema: RAW
+    tables:
+      - name: RAW_GENOME_SCORES
+      - name: RAW_GENOME_TAGS
+      - name : RAW_LINKS
+      - name : RAW_MOVIES
+      - name : RAW_RATINGS
+      - name : RAW_TAGS
+
+
